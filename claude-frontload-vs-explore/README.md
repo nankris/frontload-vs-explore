@@ -1,4 +1,4 @@
-# #015 Front-load context vs let it explore (Claude Code CLI)
+# Front-load context vs let it explore (Claude Code CLI)
 
 **Question.** If you hand Claude Code the file path, the check command and the file contents up front, instead of a bare bug report, how much do you save?
 
@@ -13,10 +13,10 @@
 
 ## Exact commands
 ```bash
-source /workspace/tools/setup.sh
+export SUITE14_DIR=/path/to/SUITE14   # the 14-package fixture
 python3 scripts/make_jobs.py
 scripts/harness/driver_cc.sh scripts/jobs.txt 2 results/driver.log
-/workspace/tools/mlenv/bin/python scripts/analyze.py
+python3 scripts/analyze.py
 ```
 
 ## Results (means of 2 runs)
@@ -35,5 +35,5 @@ scripts/harness/driver_cc.sh scripts/jobs.txt 2 results/driver.log
 ## Caveats
 - Tiny packages (≤1.3 KB files). In a big repo the bare arm would read much more, so the saving here is a floor; equally, pasting big files would cost more cache writes.
 - The front-load prompt also names the check command; I didn't separate "path" from "contents" from "command".
-- 2 reps per cell; Claude's run-to-run variance is ~1% (#010b), so the arm differences are real for these tasks.
+- 2 reps per cell; Claude's run-to-run variance is ~1% (see my [agent cost variance study](https://github.com/nankris/agent-cost-variance)), so the arm differences are real for these tasks.
 - The cited "reads are 76% of agent tokens" can't be checked directly: Claude explored via Bash, and its per-call context is dominated by the system prefix, not file reads.

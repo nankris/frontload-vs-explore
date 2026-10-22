@@ -29,5 +29,5 @@ for i,(k,lab) in enumerate((("total_tokens","total tokens (mean of 2)"),("est_co
     ax[i].bar(x-0.2,b,0.4,label="bare bug report (explore)",color="#999"); ax[i].bar(x+0.2,f,0.4,label="front-loaded path+files",color="#d17b4a")
     ax[i].set_xticks(x); ax[i].set_xticklabels(tasks,rotation=30,fontsize=8); ax[i].set_title(lab)
 ax[0].legend(fontsize=8)
-plt.suptitle(f"#015 Claude Code: front-loading context cut tokens {tot['token_saving_pct']}% and est. cost {tot['cost_saving_pct']}% (24 runs, all passed)",fontsize=11)
+plt.suptitle(f"Claude Code: front-loading context cut tokens {tot['token_saving_pct']}% and est. cost {tot['cost_saving_pct']}% (24 runs, all passed)",fontsize=11)
 plt.tight_layout(); plt.savefig(f"{D}/results/chart.png",dpi=110)

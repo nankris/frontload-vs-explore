@@ -1,6 +1,6 @@
 # Paste the file or let Claude Code find it? Half the tokens, 13% of the money.
 
-*Draft. Tech in General experiment #015. 24 headless Claude Code runs (Opus 5.5, Pro), 2026-10-15 IST.*
+*24 headless Claude Code runs (Opus 5.5, Pro), 2026-10-15 IST.*
 
 Six small bugs in a folder of 14 JavaScript packages. Two ways to ask:
 

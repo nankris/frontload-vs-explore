@@ -1,6 +1,6 @@
 import os
 E = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-S = "/workspace/work/tig/_harness/fixtures/SUITE14"
+S = os.environ.get("SUITE14_DIR", "SUITE14")  # path to the 14-package fixture
 SYM = {"N01_median": "the median helper returns the wrong value for even-length arrays",
        "N02_duration": "the duration parser ignores the seconds part (e.g. \"1h2m3s\")",
        "N03_csv": "the CSV reader breaks on quoted fields that contain commas",
